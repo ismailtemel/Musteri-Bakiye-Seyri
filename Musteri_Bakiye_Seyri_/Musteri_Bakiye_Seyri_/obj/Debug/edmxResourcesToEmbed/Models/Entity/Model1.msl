@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MusteriDbModelStoreContainer" CdmEntityContainer="MusteriDbEntities">
+    <EntitySetMapping Name="MUSTERİ_FATURA_TABLE">
+      <EntityTypeMapping TypeName="MusteriDbModel.MUSTERİ_FATURA_TABLE">
+        <MappingFragment StoreEntitySet="MUSTERİ_FATURA_TABLE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MUSTERİ_ID" ColumnName="MUSTERİ_ID" />
+          <ScalarProperty Name="FATURA_TARİHİ" ColumnName="FATURA_TARİHİ" />
+          <ScalarProperty Name="FATURA_TUTARI" ColumnName="FATURA_TUTARI" />
+          <ScalarProperty Name="ODEME_TARİHİ" ColumnName="ODEME_TARİHİ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MUSTERİ_TANIM_TABLE">
+      <EntityTypeMapping TypeName="MusteriDbModel.MUSTERİ_TANIM_TABLE">
+        <MappingFragment StoreEntitySet="MUSTERİ_TANIM_TABLE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UNVAN" ColumnName="UNVAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

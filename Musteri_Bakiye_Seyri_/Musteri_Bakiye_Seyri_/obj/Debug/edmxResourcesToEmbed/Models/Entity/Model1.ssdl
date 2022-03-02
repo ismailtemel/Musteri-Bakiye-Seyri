@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MusteriDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MUSTERİ_FATURA_TABLE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MUSTERİ_ID" Type="int" />
+    <Property Name="FATURA_TARİHİ" Type="date" />
+    <Property Name="FATURA_TUTARI" Type="int" Nullable="false" />
+    <Property Name="ODEME_TARİHİ" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MUSTERİ_TANIM_TABLE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UNVAN" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_MUSTERİ_FATURA_TABLE_MUSTERİ_TANIM_TABLE">
+    <End Role="MUSTERİ_TANIM_TABLE" Type="Self.MUSTERİ_TANIM_TABLE" Multiplicity="0..1" />
+    <End Role="MUSTERİ_FATURA_TABLE" Type="Self.MUSTERİ_FATURA_TABLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MUSTERİ_TANIM_TABLE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MUSTERİ_FATURA_TABLE">
+        <PropertyRef Name="MUSTERİ_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MusteriDbModelStoreContainer">
+    <EntitySet Name="MUSTERİ_FATURA_TABLE" EntityType="Self.MUSTERİ_FATURA_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MUSTERİ_TANIM_TABLE" EntityType="Self.MUSTERİ_TANIM_TABLE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MUSTERİ_FATURA_TABLE_MUSTERİ_TANIM_TABLE" Association="Self.FK_MUSTERİ_FATURA_TABLE_MUSTERİ_TANIM_TABLE">
+      <End Role="MUSTERİ_TANIM_TABLE" EntitySet="MUSTERİ_TANIM_TABLE" />
+      <End Role="MUSTERİ_FATURA_TABLE" EntitySet="MUSTERİ_FATURA_TABLE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,22 @@
+﻿@model Musteri_Bakiye_Seyri_.Models.Entity.MUSTERİ_TANIM_TABLE
+@{
+    ViewBag.Title = "MusteriEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MusteriEkle</h2>
+
+<form  method="post">
+    <div>
+        <label>
+            Musteri Adi
+        </label>
+        @Html.TextBoxFor(m => m.UNVAN)
+        <label></label>
+    </div>
+    <div>
+        <button>
+            Ekle
+        </button>
+    </div>
+</form>

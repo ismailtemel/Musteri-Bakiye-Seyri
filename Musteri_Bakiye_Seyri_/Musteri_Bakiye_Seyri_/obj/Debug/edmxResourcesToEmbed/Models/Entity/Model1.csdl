@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MusteriDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MUSTERİ_FATURA_TABLE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MUSTERİ_ID" Type="Int32" />
+    <Property Name="FATURA_TARİHİ" Type="DateTime" Precision="0" />
+    <Property Name="FATURA_TUTARI" Type="Int32" Nullable="false" />
+    <Property Name="ODEME_TARİHİ" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="MUSTERİ_TANIM_TABLE" Relationship="Self.FK_MUSTERİ_FATURA_TABLE_MUSTERİ_TANIM_TABLE" FromRole="MUSTERİ_FATURA_TABLE" ToRole="MUSTERİ_TANIM_TABLE" />
+  </EntityType>
+  <EntityType Name="MUSTERİ_TANIM_TABLE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UNVAN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MUSTERİ_FATURA_TABLE" Relationship="Self.FK_MUSTERİ_FATURA_TABLE_MUSTERİ_TANIM_TABLE" FromRole="MUSTERİ_TANIM_TABLE" ToRole="MUSTERİ_FATURA_TABLE" />
+  </EntityType>
+  <Association Name="FK_MUSTERİ_FATURA_TABLE_MUSTERİ_TANIM_TABLE">
+    <End Role="MUSTERİ_TANIM_TABLE" Type="Self.MUSTERİ_TANIM_TABLE" Multiplicity="0..1" />
+    <End Role="MUSTERİ_FATURA_TABLE" Type="Self.MUSTERİ_FATURA_TABLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MUSTERİ_TANIM_TABLE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MUSTERİ_FATURA_TABLE">
+        <PropertyRef Name="MUSTERİ_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MusteriDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MUSTERİ_FATURA_TABLE" EntityType="Self.MUSTERİ_FATURA_TABLE" />
+    <EntitySet Name="MUSTERİ_TANIM_TABLE" EntityType="Self.MUSTERİ_TANIM_TABLE" />
+    <AssociationSet Name="FK_MUSTERİ_FATURA_TABLE_MUSTERİ_TANIM_TABLE" Association="Self.FK_MUSTERİ_FATURA_TABLE_MUSTERİ_TANIM_TABLE">
+      <End Role="MUSTERİ_TANIM_TABLE" EntitySet="MUSTERİ_TANIM_TABLE" />
+      <End Role="MUSTERİ_FATURA_TABLE" EntitySet="MUSTERİ_FATURA_TABLE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,27 @@
+﻿@using Musteri_Bakiye_Seyri_.Models.Entity
+@model List<MUSTERİ_TANIM_TABLE>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>UNVAN</th>
+        <th>Sil</th>
+        <th>Fatura Gör</th>
+    </tr>
+    <tbody>
+        @foreach (var mstr in Model)
+        {
+        <tr>
+            <td>@mstr.ID</td>
+            <td>@mstr.UNVAN</td>
+            <td><a href="" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Fatura/FaturaById/@mstr.ID" class="btn btn-success">Gör</a></td>  
+        </tr>
+        }
+    </tbody>
+</table>
+

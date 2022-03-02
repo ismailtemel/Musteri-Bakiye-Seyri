@@ -1,0 +1,39 @@
+﻿@model Musteri_Bakiye_Seyri_.Models.Entity.MUSTERİ_FATURA_TABLE
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FaturaEkle</h2>
+
+<form method="post">
+    <div>
+        <label>
+            Musteri Id
+        </label>
+        @Html.TextBoxFor(m => m.MUSTERİ_ID)
+    </div>
+    <div>
+        <label>
+            Faura Tarihi
+        </label>
+        @Html.TextBoxFor(m => m.FATURA_TARİHİ)
+    </div>
+    <div>
+        <label>
+            Fatura Tutarı
+        </label>
+        @Html.TextBoxFor(m => m.FATURA_TUTARI)
+    </div>
+    <div>
+        <label>
+            Ödeme Tarihi
+        </label>
+        @Html.TextBoxFor(m => m.ODEME_TARİHİ)
+    </div>
+    <div>
+        <button>
+            Ekle
+        </button>
+    </div>
+</form>

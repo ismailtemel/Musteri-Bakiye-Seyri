@@ -1,0 +1,30 @@
+﻿@using Musteri_Bakiye_Seyri_.Models.Entity
+@model List<MUSTERİ_FATURA_TABLE>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Musteri Id</th>
+        <th>Fatura Tarihi</th>
+        <th>Fatura Tutarı</th>
+        <th>Odeme Tarihi</th>
+    </tr>
+    <tbody>
+        @foreach (var fatura in Model)
+        {
+            <tr>
+                <td>@fatura.ID</td>
+                <td>@fatura.MUSTERİ_ID</td>
+                <td>@fatura.FATURA_TARİHİ</td>
+                <td>@fatura.FATURA_TUTARI</td>
+                <td>@fatura.ODEME_TARİHİ</td>
+            </tr>
+        }
+    </tbody>
+</table>
