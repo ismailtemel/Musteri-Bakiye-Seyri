@@ -35,6 +35,5 @@ namespace Musteri_Bakiye_Seyri_.Controllers
             var List = db.MUSTERİ_FATURA_TABLE.SqlQuery("Select * From MUSTERİ_FATURA_TABLE Where MUSTERİ_ID = " + id).ToList();
             return View(List);
         }
-       
     }
 }
